@@ -58,7 +58,11 @@ def frequentCharacter(word):
                 frequency[char] = 1
     # find the character with maximum frequency
     maxFreq = max(frequency.values())
-    mostFrequentChars = [char for char, freq in frequency.items() if freq == maxFreq]
+    # iterate through the dictionary to find the character(s) with maximum frequency
+    for char in frequency:
+        if frequency[char] == maxFreq:
+            mostFrequentChars = char
+    # returning them
     return mostFrequentChars, maxFreq
 
 if __name__ == "__main__":
