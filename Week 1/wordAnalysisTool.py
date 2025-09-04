@@ -44,6 +44,23 @@ def longestWord(word):
     longest = max(words, key=len)
     return longest
 
+def frequentCharacter(word):
+    # dictionary to store frequency of each character
+    frequency = {}
+    # iterating through each character in the word
+    for char in word:
+        # ignore spaces
+        if char != " ":
+            # if character is already in dictionary, increment its count
+            if char in frequency:
+                frequency[char] += 1
+            else:
+                frequency[char] = 1
+    # find the character with maximum frequency
+    maxFreq = max(frequency.values())
+    mostFrequentChars = [char for char, freq in frequency.items() if freq == maxFreq]
+    return mostFrequentChars, maxFreq
+
 if __name__ == "__main__":
     # create argument parser object
     parser = argparse.ArgumentParser(description="Analysing a Word.")
